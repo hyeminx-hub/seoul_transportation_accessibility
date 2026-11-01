@@ -1,2 +1,20 @@
-# seoul_transportation_accessibility
-seoul_transportation accessibility and rent analysis
+# 서울시 아파트 단지 대중교통 보행접근성 분석
+
+2020년 서울시 아파트 단지의 전세환산가와 지하철 출입구·버스정류장까지 보행거리, 법정동별 대중교통 노드 밀도의 공간적 관계를 살펴보는 정적 대시보드입니다.
+
+## 보기
+
+Cloudflare Workers Static Assets로 배포하도록 `wrangler.jsonc`가 `public/`을 정적 파일 디렉터리로 지정합니다. Cloudflare 빌드 설정은 Build command를 비워 두고 Deploy command를 `npx wrangler deploy`로 둡니다. 배포 산출물의 첫 화면은 `public/index.html`입니다. 저장소 루트의 `index.html`은 같은 대시보드의 진입 사본입니다.
+
+## 구성
+
+- `index.html`: 대시보드 진입 파일
+- `wrangler.jsonc`: Workers 정적 자산 배포 설정
+- `public/`: Cloudflare에 업로드할 HTML과 이미지
+- `서울시_아파트단지_2020_전세환산가_접근성_병치지도.html`: 명시적인 이름으로 보존한 대시보드 원본
+- `서울시_단지_보행경로_예시.png`, `서울시_아파트단지_2020_전세환산가_보행거리_산점도.png`: 대시보드에서 참조하는 그림
+- 분석용 CSV·GeoJSON과 Jupyter 노트북은 대시보드 서비스 파일과 분리해 관리합니다.
+
+## 자료와 해석
+
+대시보드는 2020년 계약을 바탕으로 한 단지별 전세환산가·보행거리 분석과 법정동 단위 Density 분석을 구분합니다. Density 자료의 노드는 2020년, 법정동 경계·면적은 2026년 자료입니다. 관찰된 상관은 인과효과를 의미하지 않습니다. 자세한 공식 자료 출처와 계산 설명은 대시보드에 있습니다.
